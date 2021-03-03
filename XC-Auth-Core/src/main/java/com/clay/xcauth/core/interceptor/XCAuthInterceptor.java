@@ -45,7 +45,7 @@ public class XCAuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
     {
-        System.out.println("拦截器处理");
+        //System.out.println("拦截器处理:"+request.getRequestURI());
         response.setHeader(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS,HttpHeaders.AUTHORIZATION);
         if (request.getMethod().equalsIgnoreCase(HttpMethod.OPTIONS.name()))
         {

@@ -12,6 +12,9 @@
     <module>XC-Auth-Core</module>
     <module>XC-Auth-Imp</module>
     <module>XC-Auth-Client</module>
+    <module>XC-Auth-Cloud</module>
+      <module>XC-Auth-ShiroClient</module>
+
   </modules>
 
   <name>XC-Auth</name>

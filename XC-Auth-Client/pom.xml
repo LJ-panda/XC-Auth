@@ -14,7 +14,7 @@
 
         <dependency>
             <groupId>com.clay.xcauth</groupId>
-            <artifactId>XC-Auth-Imp</artifactId>
+            <artifactId>XC-Auth-Imp-Core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!--
