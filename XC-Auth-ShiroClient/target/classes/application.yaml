@@ -1,0 +1,6 @@
+xcauth:
+  jwt:
+    privateKey: dsafadg
+  interceptor:
+    includePath: /*
+    excludePath: /gdsg

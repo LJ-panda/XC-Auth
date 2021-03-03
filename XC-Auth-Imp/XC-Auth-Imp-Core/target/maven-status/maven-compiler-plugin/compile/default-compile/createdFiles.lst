@@ -1,0 +1,4 @@
+com\clay\xcauth\imp\core\service\CheckServiceImp.class
+com\clay\xcauth\imp\core\utils\JWTUtils.class
+com\clay\xcauth\imp\core\factory\TokenFactoryImp.class
+com\clay\xcauth\imp\core\utils\JSONUtils.class

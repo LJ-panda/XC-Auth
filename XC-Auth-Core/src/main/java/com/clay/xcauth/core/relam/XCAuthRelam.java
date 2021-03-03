@@ -6,7 +6,7 @@ package com.clay.xcauth.core.relam;
  * @Blog www.wandererchen.xyz
  * @Date 2021/2/28 16:01
  * @Version 1.0
- * <p>
+ *
  * 获取用户数据的域
  */
 public interface XCAuthRelam {

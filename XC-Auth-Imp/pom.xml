@@ -10,7 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>XC-Auth-Imp</artifactId>
+    <packaging>pom</packaging>
     <name>XC-Auth-Imp</name>
+    <modules>
+        <module>XC-Auth-Imp-Core</module>
+        <module>XC-Auth-Imp-likeShiro</module>
+    </modules>
 
     <dependencies>
 
