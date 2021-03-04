@@ -10,7 +10,10 @@ import com.clay.xcauth.imp.likeshiro.model.UserInfo;
  * @Blog www.wandererchen.xyz
  * @Date 2021/3/3 15:19
  * @Version 1.0
+ *
+ * 配置用户数据自动获取的relam
  */
+@SuppressWarnings("all")
 public interface XCAuthRelam {
     /**
      * 获取授权信息

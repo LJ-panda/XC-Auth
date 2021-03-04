@@ -1,9 +1,5 @@
 package com.clay.xcauth.imp.likeshiro.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,5 +37,21 @@ public class SimpleAuthorizationInfo implements AuthorizationInfo{
     @Override
     public void setRoles(List<String> roles) {
         this.roles=roles;
+    }
+
+    public List<String> getPermsssions() {
+        return permsssions;
+    }
+
+    public void setPermsssions(List<String> permsssions) {
+        this.permsssions = permsssions;
+    }
+
+    @Override
+    public String toString() {
+        return "SimpleAuthorizationInfo{" +
+                "permsssions=" + permsssions +
+                ", roles=" + roles +
+                '}';
     }
 }

@@ -8,8 +8,9 @@ import com.clay.xcauth.imp.likeshiro.model.AuthenticationInfo;
 import com.clay.xcauth.imp.likeshiro.model.UserInfo;
 import com.clay.xcauth.imp.likeshiro.relam.XCAuthRelam;
 import com.clay.xcauth.imp.likeshiro.service.EncryptService;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
+import com.clay.xcauth.imp.likeshiro.service.SubjectService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @Author clay
@@ -18,9 +19,25 @@ import lombok.extern.slf4j.Slf4j;
  * @Date 2021/3/3 14:06
  * @Version 1.0
  */
-@Slf4j
-@Setter
-public final class SubjectUtils {
+public final class SubjectUtils implements SubjectService {
+
+    private SubjectUtils(){}
+    private static SubjectUtils instance;
+    public static SubjectUtils getInstance()
+    {
+        if (instance==null)
+        {
+            synchronized (SubjectUtils.class)
+            {
+                if (instance==null)
+                {
+                    instance=new SubjectUtils();
+                }
+            }
+        }
+        return instance;
+    }
+    private Logger log = LoggerFactory.getLogger(SubjectUtils.class);
 
     private  TokenFactory tokenFactory;
 
@@ -41,6 +58,14 @@ public final class SubjectUtils {
     }
 
 
+    /**
+     * 登录
+     * @param userInfo
+     * @return
+     * @throws SubjectException
+     * @throws ParamException
+     */
+    @Override
     public  Token login(UserInfo userInfo) throws SubjectException, ParamException {
         log.debug("login info:{}",userInfo);
         checkSubject(userInfo);

@@ -1,5 +1,6 @@
 package com.clay.xcauth.imp.core.factory;
 
+import com.clay.xcauth.core.exception.XCAuthException;
 import com.clay.xcauth.core.factory.AbstractTokenFactory;
 import com.clay.xcauth.core.model.Token;
 import com.clay.xcauth.imp.core.utils.JWTUtils;
@@ -19,9 +20,14 @@ import java.util.Map;
  */
 public class TokenFactoryImp extends AbstractTokenFactory {
     private static Logger log = LoggerFactory.getLogger(TokenFactoryImp.class);
+    private int ttl;
+
+    public void setTtl(int ttl) {
+        this.ttl = ttl;
+    }
 
     @Override
-    public Token buildToken(String account, int ttl, Calendar expire, List<String> permission, List<String> roles, Map<String, String> exten) {
+    public Token buildToken(String account, int nothingttl, Calendar expire, List<String> permission, List<String> roles, Map<String, String> exten) {
         log.debug("TokenFactoryImp#buildToken：{},{},{},{},{},{}", account, ttl, expire, permission, roles, exten);
         return JWTUtils.build(account, ttl, expire, permission, roles, exten);
     }
@@ -29,9 +35,9 @@ public class TokenFactoryImp extends AbstractTokenFactory {
 
 
     @Override
-    public Token parseToken(String tokenStr) {
+    public Token parseToken(String tokenStr) throws XCAuthException {
         if (tokenStr == null || tokenStr.equals("")) {
-            log.error("TokenFactoryImp#parseToken：tokenStr is null or empty!");
+            log.debug("TokenFactoryImp#parseToken：tokenStr is null or empty!");
             return null;
         }
         return JWTUtils.parse(tokenStr);

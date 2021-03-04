@@ -10,16 +10,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>XC-Auth-Client</artifactId>
+    <version>1.0-SNAPSHOT</version>
     <dependencies>
 
-        <dependency>
-            <groupId>com.clay.xcauth</groupId>
-            <artifactId>XC-Auth-Imp-Core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
         <!--
         提示属性的必须
         -->
+        <dependency>
+            <groupId>com.clay.xcauth</groupId>
+            <artifactId>XC-Auth-Imp-likeShiro</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>

@@ -1,5 +1,6 @@
 package com.clay.xcauth.imp.core.utils;
 
+import com.clay.xcauth.core.exception.XCAuthException;
 import com.clay.xcauth.core.model.Token;
 import com.clay.xcauth.core.model.TokenConstant;
 import com.clay.xcauth.core.model.TokenImp;
@@ -58,10 +59,9 @@ public class JWTUtils {
         expire.add(Calendar.MINUTE, ttl);
         if (Objects.isNull(account) || ttl <= 0 ||
                 expire.getTimeInMillis() <= System.currentTimeMillis()) {
-            log.error("XC-Auth#JWTUtils：参数异常");
+            log.debug("XC-Auth#JWTUtils：参数异常");
             return null;
         }
-        System.out.println("XC-Auth#JWTUtils:私钥"+privateKey);
         Token token = new TokenImp();
         token.setAccount(account)
                 .setPermissions(permission)
@@ -83,10 +83,31 @@ public class JWTUtils {
     }
 
 
-    public static Token parse(String tokenStr) {
-        Claims claims = Jwts.parser().setSigningKey(privateKey.getBytes())
-                .parseClaimsJws(tokenStr).getBody();
-        return JSONUtils.getInstance().convertValue(claims.get(TokenConstant.TOKEN), TokenImp.class);
+    /**
+     * 解析生成Token
+     * @param tokenStr str
+     * @return
+     */
+    public static Token parse(String tokenStr) throws XCAuthException {
+        Claims claims;
+        try {
+             claims= Jwts.parser().setSigningKey(privateKey.getBytes())
+                    .parseClaimsJws(tokenStr).getBody();
+        }catch (Exception e)
+        {
+            throw new XCAuthException(e.getMessage());
+        }
+        Token token=JSONUtils.getInstance().convertValue(claims.get(TokenConstant.TOKEN), TokenImp.class);
+        //避免后面使用的时候出现空指针
+        if (Objects.isNull(token.getPermission()))
+        {
+            token.setPermissions(new ArrayList<>());
+        }
+        if (Objects.isNull(token.getRoles()))
+        {
+            token.setRoles(new ArrayList<>());
+        }
+        return token;
     }
 
 }

@@ -13,7 +13,8 @@
     <module>XC-Auth-Imp</module>
     <module>XC-Auth-Client</module>
     <module>XC-Auth-Cloud</module>
-      <module>XC-Auth-ShiroClient</module>
+    <module>XC-Auth-Client-Example</module>
+
 
   </modules>
 

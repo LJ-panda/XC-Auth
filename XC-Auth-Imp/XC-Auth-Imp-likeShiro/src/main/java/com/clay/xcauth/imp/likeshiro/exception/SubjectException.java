@@ -1,7 +1,5 @@
 package com.clay.xcauth.imp.likeshiro.exception;
 
-import com.clay.xcauth.core.exception.XCAuthException;
-
 /**
  * @Author clay
  * @Email wandererchen.xyz@foxmail.com

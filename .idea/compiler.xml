@@ -12,15 +12,17 @@
         <module name="XC-Auth-Imp-likeShiro" />
         <module name="XC-Auth-Client" />
         <module name="XC-Auth-Imp-Core" />
-        <module name="XC-Auth-ShiroClient" />
+        <module name="XC-Auth-Client-Example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="11" />
+      <module name="XC-Auth-ShiroClient" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="XC-Auth-Client-Example" options="-parameters" />
       <module name="demo" options="-parameters" />
     </option>
   </component>

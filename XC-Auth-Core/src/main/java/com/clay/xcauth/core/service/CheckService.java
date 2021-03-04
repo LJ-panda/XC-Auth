@@ -16,9 +16,12 @@ import java.lang.reflect.Method;
 public interface CheckService {
     boolean checkMethod(Method method, Token token);
 
-    boolean checkRoles(Method method, Token token);
+    /*
+     * 修改接口方法，隐藏调用细节
+     */
+    ///boolean checkRoles(Method method, Token token);
 
-    boolean checkPermissions(Method method, Token token);
+    //boolean checkPermissions(Method method, Token token);
 
-    boolean checkIgnore(Method method);
+    //boolean checkIgnore(Method method);
 }
