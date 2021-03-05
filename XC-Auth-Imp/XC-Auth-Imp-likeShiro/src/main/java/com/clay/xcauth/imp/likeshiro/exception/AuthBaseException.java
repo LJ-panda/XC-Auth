@@ -8,6 +8,8 @@ import com.clay.xcauth.core.exception.XCAuthException;
  * @Blog www.wandererchen.xyz
  * @Date 2021/3/3 16:24
  * @Version 1.0
+ *
+ *
  */
 public class AuthBaseException extends XCAuthException {
     public AuthBaseException(String msg){super(msg);}

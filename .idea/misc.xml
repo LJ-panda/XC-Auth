@@ -10,6 +10,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/XC-Auth-ShiroClient/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="Osmorc">
     <option name="bundlesOutputPath" value="$PROJECT_DIR$/../../../software/Intellij_IDEA/OSGI_OUTPUT" />

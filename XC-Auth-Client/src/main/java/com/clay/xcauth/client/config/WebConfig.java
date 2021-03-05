@@ -3,6 +3,8 @@ package com.clay.xcauth.client.config;
 import com.clay.xcauth.core.factory.TokenFactory;
 import com.clay.xcauth.core.interceptor.XCAuthInterceptor;
 import com.clay.xcauth.core.service.CheckService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
@@ -25,6 +27,7 @@ import java.util.List;
 @ConfigurationProperties(prefix = "xcauth.interceptor")
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+    private Logger log= LoggerFactory.getLogger(WebConfig.class);
 
     private String includePath="*;";
     private String excludePath;
@@ -84,6 +87,9 @@ public class WebConfig implements WebMvcConfigurer {
         interceptor.setRefreshGap(refreshGap);
         interceptor.setCheckService(checkService);
         interceptor.setTokenFactory(tokenFactory);
+
+        log.debug("拦截路径：{}",include);
+        log.debug("不拦截路径：{}",exclude);
 
         registry.addInterceptor(interceptor)
                 .excludePathPatterns(exclude)

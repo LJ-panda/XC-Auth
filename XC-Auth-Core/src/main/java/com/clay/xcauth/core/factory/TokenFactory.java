@@ -1,5 +1,6 @@
 package com.clay.xcauth.core.factory;
 
+import com.clay.xcauth.core.exception.XCAuthException;
 import com.clay.xcauth.core.model.Token;
 
 import java.util.Calendar;
@@ -44,7 +45,7 @@ public interface TokenFactory {
      * @param tokenStr token
      * @return tokenObj
      */
-    Token parseToken(String tokenStr);
+    Token parseToken(String tokenStr) throws XCAuthException;
 
     /**
      * 刷新

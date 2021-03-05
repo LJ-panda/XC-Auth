@@ -3,6 +3,8 @@ package com.clay.xcauth.core.interceptor;
 import com.clay.xcauth.core.factory.TokenFactory;
 import com.clay.xcauth.core.model.Token;
 import com.clay.xcauth.core.service.CheckService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.method.HandlerMethod;
@@ -21,6 +23,9 @@ import java.util.Calendar;
  * @Version 1.0
  */
 public class XCAuthInterceptor implements HandlerInterceptor {
+
+    private Logger log= LoggerFactory.getLogger(XCAuthInterceptor.class);
+
 
     public XCAuthInterceptor(){}
     private CheckService checkService;
@@ -45,7 +50,8 @@ public class XCAuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception
     {
-        //System.out.println("拦截器处理:"+request.getRequestURI());
+        log.debug("拦截器处理URL:{}",request.getRequestURI());
+
         response.setHeader(HttpHeaders.ACCESS_CONTROL_EXPOSE_HEADERS,HttpHeaders.AUTHORIZATION);
         if (request.getMethod().equalsIgnoreCase(HttpMethod.OPTIONS.name()))
         {
@@ -77,6 +83,5 @@ public class XCAuthInterceptor implements HandlerInterceptor {
         }
         return true;
     }
-
 
 }

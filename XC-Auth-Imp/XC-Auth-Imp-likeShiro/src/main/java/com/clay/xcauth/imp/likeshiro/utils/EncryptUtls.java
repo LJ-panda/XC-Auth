@@ -1,9 +1,7 @@
 package com.clay.xcauth.imp.likeshiro.utils;
 
 import com.clay.xcauth.imp.likeshiro.exception.ParamException;
-import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.util.DigestUtils;
-import org.springframework.util.StringUtils;
 
 /**
  * @Author clay

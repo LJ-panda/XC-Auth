@@ -1,23 +1,28 @@
 {
   "properties": [
     {
-      "name": "xcauth.privateKey",
+      "name": "xcauth.jwt.privateKey",
       "type": "java.lang.String",
-      "description": "jwt private key."
+      "description": "jwt加密私钥."
     },
     {
       "name": "xcauth.interceptor.includePath",
       "type": "java.lang.String",
-      "description": "需要拦截的路径，默认为 * ."
+      "description": "Description for xcauth.interceptor.includePath."
     },
     {
       "name": "xcauth.interceptor.excludePath",
       "type": "java.lang.String",
-      "description": "不拦截的路径."
+      "description": "Description for xcauth.interceptor.excludePath."
     },
     {
       "name": "xcauth.interceptor.refreshGap",
       "type": "java.lang.String",
-      "description": "刷新token间隔时间，单位分钟."
+      "description": "Description for xcauth.interceptor.refreshGap."
+    },
+    {
+      "name": "xcauth.jwt.ttl",
+      "type": "java.lang.String",
+      "description": "JWT存活时间."
     }
   ] }

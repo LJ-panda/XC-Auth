@@ -17,6 +17,7 @@ import java.lang.reflect.Method;
  * @Version 1.0
  * <p>
  * 检测具体实现
+ * 依赖于{@link AbstractCheckService}的checkMethod调用以下三个实现
  */
 public class CheckServiceImp extends AbstractCheckService {
     @Override
@@ -28,10 +29,10 @@ public class CheckServiceImp extends AbstractCheckService {
         if (roles != null) {
             boolean result;
             String[] roleArr = roles.roles();
-            if (roleArr.length != 0 &&(token.getRoles()==null ||token.getRoles().size()==0))
+            /*if (roleArr.length != 0 &&(token.getRoles()==null ||token.getRoles().size()==0))
             {
                 return false;
-            }
+            }*/
             RolePermissionLogic logic = roles.logic();
             if (logic == RolePermissionLogic.OR) {
                 result = false;
@@ -57,10 +58,10 @@ public class CheckServiceImp extends AbstractCheckService {
         }
         if (annotation != null) {
             String[] permissions = annotation.permissions();
-            if (permissions.length != 0 && (token.getPermission()==null||token.getPermission().size()==0))
+            /*if (permissions.length != 0 && (token.getPermission()==null||token.getPermission().size()==0))
             {
                 return false;
-            }
+            }*/
             RolePermissionLogic logic = annotation.logic();
             boolean result;
             if (logic == RolePermissionLogic.OR) {

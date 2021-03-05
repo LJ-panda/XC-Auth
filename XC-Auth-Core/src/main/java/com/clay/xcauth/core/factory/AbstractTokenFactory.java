@@ -6,6 +6,7 @@ import com.clay.xcauth.core.model.TokenConstant;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 /**
  * @Author clay
@@ -17,7 +18,6 @@ import java.util.Map;
 public abstract class AbstractTokenFactory implements TokenFactory {
     @Override
     public Token buildToken(String account) {
-        System.out.println("father");
         return buildToken(account, TokenConstant.DEFAULT_TTL);
     }
 

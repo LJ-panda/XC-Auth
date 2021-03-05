@@ -19,11 +19,16 @@ import org.springframework.context.annotation.Import;
  * @Version 1.0
  */
 @Import(WebConfig.class)
-@ConfigurationProperties(prefix = "xcauth")
+@ConfigurationProperties(prefix = "xcauth.jwt")
 @Configuration
 public class XCAuthConfig {
-    //privateKey
     private String privateKey;
+
+    private int ttl;
+
+    public void setTtl(int ttl) {
+        this.ttl = ttl;
+    }
 
     public void setPrivateKey(String privateKey) {
         this.privateKey = privateKey;
@@ -33,9 +38,10 @@ public class XCAuthConfig {
     @Bean
     public TokenFactory tokenFactory()
     {
-        System.out.println("私钥："+privateKey);
         JWTUtils.setPrivateKey(privateKey);
-        return new TokenFactoryImp();
+        TokenFactoryImp tokenFactoryImp=new TokenFactoryImp();
+        tokenFactoryImp.setTtl(ttl);
+        return tokenFactoryImp;
     }
 
     @ConditionalOnMissingBean(CheckService.class)

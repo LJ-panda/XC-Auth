@@ -1,7 +1,5 @@
 package com.clay.xcauth.imp.likeshiro.model;
 
-import lombok.*;
-
 import java.util.Map;
 
 /**
@@ -46,6 +44,22 @@ public class SimpleAuthenticationInfo implements AuthenticationInfo {
     @Override
     public Map<String, String> getExtens() {
         return extens;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public void setAuthorizationInfo(AuthorizationInfo authorizationInfo) {
+        this.authorizationInfo = authorizationInfo;
+    }
+
+    public void setCrypt(String crypt) {
+        this.crypt = crypt;
+    }
+
+    public void setExtens(Map<String, String> extens) {
+        this.extens = extens;
     }
 
     @Override

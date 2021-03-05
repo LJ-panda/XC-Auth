@@ -11,6 +11,13 @@ import java.util.Map;
  * @Blog www.wandererchen.xyz
  * @Date 2021/3/3 17:54
  * @Version 1.0
+ *
+ * 默认加密服务
+ * 该服务默认从用户扩展数据中获取salt值
+ * 如果map为空，则返回空值。
+ *
+ * 且加密采用工具类{@link EncryptUtls}中的md5实现
+ * 本质上，该加密为对密码和salt的拼接取MD5值
  */
 public class DefaultEncryptServiceImp extends AbstractEncryptService {
     @Override
