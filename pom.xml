@@ -12,15 +12,10 @@
     <module>XC-Auth-Core</module>
     <module>XC-Auth-Imp</module>
     <module>XC-Auth-Client</module>
-    <module>XC-Auth-Cloud</module>
     <module>XC-Auth-Client-Example</module>
-
-
   </modules>
 
   <name>XC-Auth</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
