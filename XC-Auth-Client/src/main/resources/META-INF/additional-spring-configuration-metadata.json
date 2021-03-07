@@ -8,17 +8,17 @@
     {
       "name": "xcauth.interceptor.includePath",
       "type": "java.lang.String",
-      "description": "Description for xcauth.interceptor.includePath."
+      "description": "拦截路径，以分号分隔，默认为/**."
     },
     {
       "name": "xcauth.interceptor.excludePath",
       "type": "java.lang.String",
-      "description": "Description for xcauth.interceptor.excludePath."
+      "description": "不拦截的路径，以分号分隔."
     },
     {
       "name": "xcauth.interceptor.refreshGap",
       "type": "java.lang.String",
-      "description": "Description for xcauth.interceptor.refreshGap."
+      "description": "token刷新时间."
     },
     {
       "name": "xcauth.jwt.ttl",
