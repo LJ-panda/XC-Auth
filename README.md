@@ -1,6 +1,6 @@
 ## XC-Auth：基于JWT的认证工具，可类似于 Shiro。
 ### QuickStart
-1. 在 Maven 引入以下依赖
+1. 在 Maven 引入以下依赖（前提是已经install了）
 
     ```XML
     <dependency>
